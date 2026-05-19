@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1779212984" />
+    <testcase name="test_add" classname="alu_tb" file="/home/emdua/verilog_projects/first_RISC-V-Processor/testBenches/alu_tb.py" lineno="4" time="0.0002276897430419922" sim_time_ns="1.0" ratio_time="4391.941361256545" />
+  </testsuite>
+</testsuites>

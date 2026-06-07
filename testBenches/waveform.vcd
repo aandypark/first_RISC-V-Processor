@@ -1,0 +1,62 @@
+$date
+	Wed May 27 12:34:47 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module registerFile $end
+$var wire 1 ! clk $end
+$var wire 5 " read1 [4:0] $end
+$var wire 5 # read2 [4:0] $end
+$var wire 1 $ rst $end
+$var wire 32 % writeData [31:0] $end
+$var wire 1 & writeEnable $end
+$var wire 5 ' writeReg [4:0] $end
+$var wire 32 ( readOut2 [31:0] $end
+$var wire 32 ) readOut1 [31:0] $end
+$var integer 32 * i [31:0] $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+bx *
+bx )
+bx (
+b0 '
+0&
+b0 %
+1$
+b10 #
+b1 "
+1!
+$end
+#5000
+0!
+#10000
+b11011110101011011011111011101111 %
+b1 '
+1&
+1!
+#15000
+0!
+#20000
+b10010001101000101011001111000 %
+b10 '
+b11011110101011011011111011101111 )
+1!
+#25000
+0!
+#30000
+0&
+b10010001101000101011001111000 (
+1!
+#35000
+0!
+#40000
+1!

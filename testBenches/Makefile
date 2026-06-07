@@ -1,9 +1,9 @@
 TOPLEVEL_LANG = verilog
 
-VERILOG_SOURCES = $(PWD)/../rtl/alu.sv
+VERILOG_SOURCES = $(PWD)/../rtl/registerFile.sv
 
-TOPLEVEL = alu
-MODULE = alu_tb
+TOPLEVEL = registerFile
+MODULE = registerFile_tb
 
 SIM = icarus
 

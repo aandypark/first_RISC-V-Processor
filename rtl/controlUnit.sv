@@ -5,7 +5,7 @@ module controlUnit(
 
 
     output logic [3:0] aluControl;
-    output logic
+    output logic regwrite
 );
 
 always_comb begin

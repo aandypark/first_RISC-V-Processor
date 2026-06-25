@@ -1,11 +1,16 @@
 module controlUnit(
-    input [6:0] opcode;
-    input [2:0] funct3;
-    input [6:0] funct7
+    input [6:0] opcode,
+    input [2:0] funct3,
+    input [6:0] funct7,
 
+    output logic [3:0] aluControl,
+    output logic regWrite,
+    output logic memRead,
+    output logic memWrite,
+    output logic aluSrc,
+    output logic memToReg,
+    output logic branch
 
-    output logic [3:0] aluControl;
-    output logic regwrite
 );
 
 always_comb begin
@@ -13,6 +18,11 @@ always_comb begin
     // Default values
     aluControl = 4'b0000;
     regWrite   = 1'b0;
+    memRead    = 1'b0;
+    memWrite   = 1'b0;
+    aluSrc     = 1'b0;
+    memToReg   = 1'b0;
+    branch     = 1'b0;
 
     case(opcode)
         // R-type instructions
@@ -44,6 +54,31 @@ always_comb begin
             endcase
         end
 
+        // I-type ALU instructions
+        7'b0010011: begin
+            regWrite = 1'b1;
+            aluSrc   = 1'b1;
+        end
+
+        // Load instructions
+        7'b0000011: begin
+            regWrite = 1'b1;
+            memRead  = 1'b1;
+            aluSrc   = 1'b1;
+            memToReg = 1'b1;
+        end
+
+        // Store instructions
+        7'b0100011: begin
+            memWrite = 1'b1;
+            aluSrc   = 1'b1;
+        end
+
+        // Branch instructions
+        7'b1100011: begin
+            branch = 1'b1;
+        end
+
         default: begin
             regWrite = 1'b0;
             aluControl = 4'b0000;
@@ -52,4 +87,4 @@ always_comb begin
     endcase
 
 end
-endModule
+endmodule

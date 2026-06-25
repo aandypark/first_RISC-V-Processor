@@ -23,8 +23,12 @@ module alu_control_test (
     alu alu0 (
         .a(rs1),
         .b(rs2),
-        .aluControl(aluControl),
+        .alu_sel(aluControl),
         .result(result)
     );
 
+    initial begin
+        $dumpfile("addTest.vcd"); // Specifies the name of the output VCD file
+        $dumpvars(0);      // Dumps all signals in 'tb_top' and everything below it
+    end
 endmodule

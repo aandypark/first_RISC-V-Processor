@@ -58,6 +58,14 @@ always_comb begin
         7'b0010011: begin
             regWrite = 1'b1;
             aluSrc   = 1'b1;
+            // Decode operation based on funct3
+            case(funct3)
+                3'b000: aluControl = 4'b0000;  // ADDI
+                3'b111: aluControl = 4'b0010;  // ANDI
+                3'b110: aluControl = 4'b0011;  // ORI
+                3'b100: aluControl = 4'b0100;  // XORI
+                default: aluControl = 4'b0000;
+            endcase
         end
 
         // Load instructions
